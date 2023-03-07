@@ -19,9 +19,11 @@ export const FeedbackOptions = ({
 };
 
 FeedbackOptions.propTypes = {
-  good: PropTypes.string.isRequired,
-  neutral: PropTypes.string.isRequired,
-  bad: PropTypes.string.isRequired,
+  options: PropTypes.exact({
+    good: PropTypes.string.isRequired,
+    neutral: PropTypes.string.isRequired,
+    bad: PropTypes.string.isRequired,
+  }),
   onLeavePositiveFeedback: PropTypes.func.isRequired,
   onLeaveNeutralFeedback: PropTypes.func.isRequired,
   onLeaveBadFeedback: PropTypes.func.isRequired,

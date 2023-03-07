@@ -13,7 +13,8 @@ export class App extends React.Component {
     positive: 0,
   };
 
-  handleGoodFeedback = () => {
+  handleGoodFeedback = (e) => {
+    console.log('e.target', e.target)
     this.setState(prevState => ({
       good: prevState.good + 1,
     }));
