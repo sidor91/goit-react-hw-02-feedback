@@ -11,6 +11,7 @@ export const FeedbackButton = styled.button`
   }
 
   &:active {
-    background-color: skyblue;
+    background-color: blue;
+    color: white;
   }
 `;
