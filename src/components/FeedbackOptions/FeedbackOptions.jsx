@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { ButtonsWrapper, FeedbackButton } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({
+const FeedbackOptions = ({
   options: { good, neutral, bad },
   onLeavePositiveFeedback,
   onLeaveNeutralFeedback,
@@ -28,3 +28,5 @@ FeedbackOptions.propTypes = {
   onLeaveNeutralFeedback: PropTypes.func.isRequired,
   onLeaveBadFeedback: PropTypes.func.isRequired,
 };
+
+export default FeedbackOptions;

@@ -6,7 +6,7 @@ import {
   PositivePercentrage,
 } from './Statistics.styled';
 
-export const Statistics = ({ good, neutral, bad, total, positive }) => {
+const Statistics = ({ good, neutral, bad, total, positive }) => {
   return (
     <StatisticsWrapper>
       <FeedbackVariant>Good: {good}</FeedbackVariant>
@@ -25,3 +25,5 @@ Statistics.propTypes = {
   total: PropTypes.number.isRequired,
   positive: PropTypes.number.isRequired,
 };
+
+export default Statistics;
