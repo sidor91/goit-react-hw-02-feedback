@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const ButtonsWrapper = styled.div``;
+export const ButtonsWrapper = styled.div`
+display: flex;
+justify-content: center;
+`;
 
 export const FeedbackButton = styled.button`
   &:not(:last-child) {
