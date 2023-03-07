@@ -9,4 +9,8 @@ export const FeedbackButton = styled.button`
   &:not(:last-child) {
     margin-right: 10px;
   }
+
+  &:active {
+    background-color: skyblue;
+  }
 `;
