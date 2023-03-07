@@ -48,6 +48,7 @@ export class App extends React.Component {
   };
 
   render() {
+    const { good, neutral, bad, total, positive } = this.state;
     return (
       <div
         style={{
@@ -71,11 +72,11 @@ export class App extends React.Component {
         {this.state.total > 0 ? (
           <Section title={'Statistics'}>
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={this.state.total}
-              positive={this.state.positive}
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positive={positive}
             />
           </Section>
         ) : (
