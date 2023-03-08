@@ -3,17 +3,17 @@ import { ButtonsWrapper, FeedbackButton } from './FeedbackOptions.styled';
 
 const FeedbackOptions = ({
   options: { good, neutral, bad },
-  onLeavePositiveFeedback,
-  onLeaveNeutralFeedback,
-  onLeaveBadFeedback,
+  onLeaveFeedback,
 }) => {
   return (
     <ButtonsWrapper>
-      <FeedbackButton onClick={onLeavePositiveFeedback}>{good}</FeedbackButton>
-      <FeedbackButton onClick={onLeaveNeutralFeedback}>
+      <FeedbackButton name="good" onClick={onLeaveFeedback}>
+        {good}
+      </FeedbackButton>
+      <FeedbackButton name="neutral" onClick={onLeaveFeedback}>
         {neutral}
       </FeedbackButton>
-      <FeedbackButton onClick={onLeaveBadFeedback}>{bad}</FeedbackButton>
+      <FeedbackButton name='bad' onClick={onLeaveFeedback}>{bad}</FeedbackButton>
     </ButtonsWrapper>
   );
 };
@@ -24,9 +24,7 @@ FeedbackOptions.propTypes = {
     neutral: PropTypes.string.isRequired,
     bad: PropTypes.string.isRequired,
   }),
-  onLeavePositiveFeedback: PropTypes.func.isRequired,
-  onLeaveNeutralFeedback: PropTypes.func.isRequired,
-  onLeaveBadFeedback: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired
 };
 
 export default FeedbackOptions;

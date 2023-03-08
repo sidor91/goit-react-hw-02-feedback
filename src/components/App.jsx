@@ -13,21 +13,10 @@ export class App extends React.Component {
     positive: 0,
   };
 
-  handleGoodFeedback = () => {
+  handleFeedback = (e) => {
+    const stateName = e.target.name;
     this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
-    this.countTotalFeedback();
-  };
-  handleNeutralFeedback = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-    this.countTotalFeedback();
-  };
-  handleBadFeedback = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
+      [stateName]: prevState[stateName] + 1,
     }));
     this.countTotalFeedback();
   };
@@ -64,9 +53,7 @@ export class App extends React.Component {
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
             options={{ good: 'Good', neutral: 'Neutral', bad: 'Bad' }}
-            onLeavePositiveFeedback={this.handleGoodFeedback}
-            onLeaveNeutralFeedback={this.handleNeutralFeedback}
-            onLeaveBadFeedback={this.handleBadFeedback}
+            onLeaveFeedback={this.handleFeedback}
           />
         </Section>
         {this.state.total > 0 ? (
