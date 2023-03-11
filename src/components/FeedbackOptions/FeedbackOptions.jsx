@@ -1,30 +1,28 @@
 import PropTypes from 'prop-types';
 import { ButtonsWrapper, FeedbackButton } from './FeedbackOptions.styled';
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const FeedbackOptions = ({
-  options: { good, neutral, bad },
+  options,
   onLeaveFeedback,
 }) => {
   return (
     <ButtonsWrapper>
-      <FeedbackButton name="good" onClick={onLeaveFeedback}>
-        {good}
-      </FeedbackButton>
-      <FeedbackButton name="neutral" onClick={onLeaveFeedback}>
-        {neutral}
-      </FeedbackButton>
-      <FeedbackButton name='bad' onClick={onLeaveFeedback}>{bad}</FeedbackButton>
+      {options.map((option, index) => (
+        <FeedbackButton name={option} onClick={onLeaveFeedback} key={index}>
+          {capitalizeFirstLetter(option)}
+        </FeedbackButton>
+      ))}
     </ButtonsWrapper>
   );
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.exact({
-    good: PropTypes.string.isRequired,
-    neutral: PropTypes.string.isRequired,
-    bad: PropTypes.string.isRequired,
-  }),
-  onLeaveFeedback: PropTypes.func.isRequired
+  options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;

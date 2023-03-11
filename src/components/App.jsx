@@ -8,9 +8,7 @@ export class App extends React.Component {
   state = {
     good: 0,
     neutral: 0,
-    bad: 0,
-    total: 0,
-    positive: 0,
+    bad: 0
   };
 
   handleFeedback = (e) => {
@@ -18,26 +16,10 @@ export class App extends React.Component {
     this.setState(prevState => ({
       [stateName]: prevState[stateName] + 1,
     }));
-    this.countTotalFeedback();
-  };
-
-  countTotalFeedback = () => {
-    this.setState(prevState => {
-      return {
-        total: prevState.total + 1,
-      };
-    });
-        this.countPositiveFeedbackPercentage();
-  };
-
-  countPositiveFeedbackPercentage = () => {
-    this.setState(prevState => ({
-      positive: Math.floor((100 / prevState.total) * prevState.good),
-    }));
   };
 
   render() {
-    const { good, neutral, bad, total, positive } = this.state;
+    const { good, neutral, bad} = this.state;
     return (
       <div
         style={{
@@ -52,18 +34,16 @@ export class App extends React.Component {
       >
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={{ good: 'Good', neutral: 'Neutral', bad: 'Bad' }}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>
-        {this.state.total > 0 ? (
+        {(good + neutral + bad) > 0 ? (
           <Section title={'Statistics'}>
             <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
-              total={total}
-              positive={positive}
             />
           </Section>
         ) : (

@@ -6,7 +6,9 @@ import {
   PositivePercentrage,
 } from './Statistics.styled';
 
-const Statistics = ({ good, neutral, bad, total, positive }) => {
+const Statistics = ({ good, neutral, bad }) => {
+  const total = (good + neutral + bad)
+  const positive = Math.floor((100 / total) * good);
   return (
     <StatisticsWrapper>
       <FeedbackVariant>Good: {good}</FeedbackVariant>
@@ -22,8 +24,6 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  positive: PropTypes.number.isRequired,
 };
 
 export default Statistics;
